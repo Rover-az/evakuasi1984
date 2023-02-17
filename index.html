@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Evakuasi 1984</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <h1 style="text-align:center">Evakuasi 1984</h1>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="beranda-tab" data-bs-toggle="tab" data-bs-target="#beranda-tab-pane" type="button" role="tab" aria-controls="beranda-tab-pane" aria-selected="true">Beranda</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="prolog-tab" data-bs-toggle="tab" data-bs-target="#prolog-tab-pane" type="button" role="tab" aria-controls="prolog-tab-pane" aria-selected="false">Prolog</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="daftar-tab" data-bs-toggle="tab" data-bs-target="#daftar-tab-pane" type="button" role="tab" aria-controls="daftar-tab-pane" aria-selected="false">Daftar Penduduk</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="transkrip-tab" data-bs-toggle="tab" data-bs-target="#transkrip-tab-pane" type="button" role="tab" aria-controls="transkrip-tab-pane" aria-selected="false">Transkrip Rekaman</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent" style="padding:10px;">
+        <div class="tab-pane fade show active" id="beranda-tab-pane" role="tabpanel" aria-labelledby="beranda-tab" tabindex="0">
+            <h2>Intro</h2>
+            <p>Tahun 1984, sebuah erupsi gunung berapi terjadi. Masyarakat terdampak terpaksa meninggalkan kampung mereka untuk mengungsi. Untungnya, semua warga selamat dan sekarang berada di pos pengungsian.</p>
+            <p>Anda berperan sebagai petugas sensus. Pendataan alamat dan tanggal lahir korban perlu dilakukan. Tugas Anda adalah mendata penduduk RT 3. Untuk efisiensi waktu dan biaya, proses wawancara langsung tidak dapat dilakukan sehingga data yang digunakan adalah data registrasi ketua RT.</p>
+            <h2>Cara Bermain</h2>
+            <ol>
+                <li>Secara garis besar tujuan puzzle ini adalah sebagai berikut.
+                    <ol type="a">
+                        <li>Terdapat 24 nama warga yang perlu dicari lokasi rumahnya.</li>
+                        <li>Selain lokasi, tanggal dan bulan lahir mereka juga perlu dicari.</li>
+                        <li>Gunakan setiap informasi dari rekaman dan sumber lain untuk mengidentifikasi.</li>
+                    </ol>
+                </li>
+                <li>Baca sekilas prolog, nama penduduk, denah RT, serta semua transkrip rekaman. Setiap detail bisa jadi petunjuk. Apabila ada hal menarik, petunjuk dapat diperiksa kembali.</li>
+                <li>Tanda bintang di daftar nama menandakan kesulitan untuk menentukan denah rumah atau hari ulang tahun orang tersebut: satu bintang paling mudah, tiga bintang paling sulit.</li>
+                <li>Petunjuk lugas cukup langka. Beberapa petunjuk harus dikerucutkan dengan asumsi-asumsi. Bahkan, beberapa karakter hanya dapat diidentifikasi melalui proses eliminasi.</li>
+                <li>Konfirmasi dilakukan setiap menekan tombol Periksa!</li>
+                <li>Tidak dianjurkan menebak-nebak tanpa asumsi yang jelas (brute force) karena esensi permainan ini adalah observasi, perhatian terhadap detail, dan logika.</li>
+            </ol>
+            <h2>Credits</h2>
+            <ul>
+                <li>Inspirasi dari 'Return of the Obra Dinn' karya Lucas Pope.</li>
+                <li>Copy & Content Beta Tester: t.me/LlamaLorekPink</li>
+                <li>Media Partner: t.me/branchingstory</li>
+                <li>Developer, Script, Art: t.me/TehTawar500</li>
+            </ul>
+        </div>
+        <div class="tab-pane fade" id="prolog-tab-pane" role="tabpanel" aria-labelledby="prolog-tab" tabindex="0">
+            <h2>Prolog</h2>
+            <p>Koper berisi formulir dan alat tulis Anda siapkan untuk diisi dengan data penduduk. Tak lupa masker juga Anda kenakan agar tidak menghirup abu vulkanik. Saat hendak menjalankan tugas, tiba-tiba kurir pos mengirimkan sebuah surat.</p>
+            <blockquote>
+                Satu RT berisi 24 kepala keluarga ini melakukan pengungsian secara serentak pada Sabtu, 28 Juli 1984 sebab bencana erupsi gunung berapi. Rumah dan harta benda mereka tinggalkan semua.
+                Tolong bantu saya untuk mendata rumah warga dan tanggal lahirnya sebab buku administrasi di rumah saya tidak bisa ditemukan. Keunikan desa ini adalah setiap rumah hanya dihuni oleh kepala keluarga itu sendiri serta semua warga memiliki tahun lahir 1948.
+                Untuk membantu, saya memberimu kewenangan untuk memeriksa beberapa perekam suara yang saya temukan di rumah-rumah warga ini. Sayangnya, kebanyakan sudah rusak dan hanya memutar sepotong-sepotong kalimat saja. Semuanya sudah saya tulis transkripnya.
+                Transkrip tersebut memiliki notasi huruf di depannya, menandakan siapa yang berbicara. X pada rekaman 1 bisa jadi sama atau beda orang dengan X pada rekaman 2. Suara orang asing, bukan warga setempat, juga bisa jadi terdengar pada rekaman.
+                
+                Lestari Mulya
+            </blockquote>
+            <p>Setelah membaca surat tersebut, terdapat sebuah gulungan kertas yang tersapu angin melintas di depan berisi lukisan.</p>
+
+        </div>
+        <div class="tab-pane fade" id="daftar-tab-pane" role="tabpanel" aria-labelledby="daftar-tab" tabindex="0">
+            <h2>Soal</h2>
+            <div class="bd-example-snippet bd-code-snippet"><div class="bd-example">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Pekerjaan</th>
+                            <th scope="col">Lokasi</th>
+                            <th scope="col">Tanggal Lahir</th>
+                            <th scope="col">Validasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Lestari Mulya</td>
+                            <td>Ketua RT | Guru</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Putri Santoso</td>
+                            <td>Akuntan Restoran</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Noval Utama</td>
+                            <td>Juru Masak</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>Mamat Handoko</td>
+                            <td>Pramusaji</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>Setia Abadi</td>
+                            <td>Pramusaji</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>Siti Oktaviani</td>
+                            <td>Pramusaji</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <td>Valensia Tri</td>
+                            <td>Pramusaji</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">8</th>
+                            <td>Pelita Sukma</td>
+                            <td>Seniwati</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">9</th>
+                            <td>Amirul Wahyu</td>
+                            <td>Pedagang Sembako</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10</th>
+                            <td>Pandu Santoso</td>
+                            <td>Wirausaha Batako</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">11</th>
+                            <td>Burhan Tri</td>
+                            <td>Wirausaha Jahit</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">12</th>
+                            <td>Mawar Santika</td>
+                            <td>Karyawan Jahit</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">13</th>
+                            <td>Desti Wulandari</td>
+                            <td>Karyawan Jahit</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">14</th>
+                            <td>Dimas Eko Bayu</td>
+                            <td>Karyawan Jahit</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">15</th>
+                            <td>Agus Barjuli</td>
+                            <td>Petani</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">16</th>
+                            <td>Aisya Hardi</td>
+                            <td>Petani</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">17</th>
+                            <td>Bayu Haryanto</td>
+                            <td>Petani</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">18</th>
+                            <td>Candra Hardi</td>
+                            <td>Petani</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">19</th>
+                            <td>Endmay Dwi</td>
+                            <td>Petani</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">20</th>
+                            <td>Oktafian Hardi</td>
+                            <td>Petani</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">21</th>
+                            <td>Slamet</td>
+                            <td>Petani</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">22</th>
+                            <td>Indah Permata</td>
+                            <td>Asisten Rumah Tangga</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">23</th>
+                            <td>Raka Imau</td>
+                            <td>Asisten Rumah Tangga</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">24</th>
+                            <td>Sasa Mentari</td>
+                            <td>Asisten Rumah Tangga</td>
+                            <td class="lokasi"></td>
+                            <td class="tnb"></td>
+                            <td class="validasi"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div></div>
+        </div>
+        <div class="tab-pane fade" id="transkrip-tab-pane" role="tabpanel" aria-labelledby="transkrip-tab" tabindex="0">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-R01-tab" data-bs-toggle="pill" data-bs-target="#pills-R01" type="button" role="tab" aria-controls="pills-R01" aria-selected="true">R01</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R02-tab" data-bs-toggle="pill" data-bs-target="#pills-R02" type="button" role="tab" aria-controls="pills-R02" aria-selected="false">R02</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R03-tab" data-bs-toggle="pill" data-bs-target="#pills-R03" type="button" role="tab" aria-controls="pills-R03" aria-selected="false">R03</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R04-tab" data-bs-toggle="pill" data-bs-target="#pills-R04" type="button" role="tab" aria-controls="pills-R04" aria-selected="false">R04</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R05-tab" data-bs-toggle="pill" data-bs-target="#pills-R05" type="button" role="tab" aria-controls="pills-R05" aria-selected="false">R05</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R06-tab" data-bs-toggle="pill" data-bs-target="#pills-R06" type="button" role="tab" aria-controls="pills-R06" aria-selected="false">R06</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R07-tab" data-bs-toggle="pill" data-bs-target="#pills-R07" type="button" role="tab" aria-controls="pills-R07" aria-selected="false">R07</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R08-tab" data-bs-toggle="pill" data-bs-target="#pills-R08" type="button" role="tab" aria-controls="pills-R08" aria-selected="false">R08</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R09-tab" data-bs-toggle="pill" data-bs-target="#pills-R09" type="button" role="tab" aria-controls="pills-R09" aria-selected="false">R09</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R10-tab" data-bs-toggle="pill" data-bs-target="#pills-R10" type="button" role="tab" aria-controls="pills-R10" aria-selected="false">R10</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R11-tab" data-bs-toggle="pill" data-bs-target="#pills-R11" type="button" role="tab" aria-controls="pills-R11" aria-selected="false">R11</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R12-tab" data-bs-toggle="pill" data-bs-target="#pills-R12" type="button" role="tab" aria-controls="pills-R12" aria-selected="false">R12</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R13-tab" data-bs-toggle="pill" data-bs-target="#pills-R13" type="button" role="tab" aria-controls="pills-R13" aria-selected="false">R13</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R14-tab" data-bs-toggle="pill" data-bs-target="#pills-R14" type="button" role="tab" aria-controls="pills-R14" aria-selected="false">R14</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R15-tab" data-bs-toggle="pill" data-bs-target="#pills-R15" type="button" role="tab" aria-controls="pills-R15" aria-selected="false">R15</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R16-tab" data-bs-toggle="pill" data-bs-target="#pills-R16" type="button" role="tab" aria-controls="pills-R16" aria-selected="false">R16</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R17-tab" data-bs-toggle="pill" data-bs-target="#pills-R17" type="button" role="tab" aria-controls="pills-R17" aria-selected="false">R17</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-R18-tab" data-bs-toggle="pill" data-bs-target="#pills-R18" type="button" role="tab" aria-controls="pills-R18" aria-selected="false">R18</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-R01" role="tabpanel" aria-labelledby="pills-R01-tab" tabindex="0">
+                    <h2>(rekaman tanpa judul)</h2>
+                    <p>X: Kemarin, dahan pohon mangganya Indah jatuh ke rumahku. Harus dibenerin, deh. Untung bukan waktu hujan.</p>
+                    <p>Y: Ya kalau tidak mau kejatuhan pohon bangun rumah di tengah sawah yang tidak dempetan sama orang lain, mirip rumahnya Dwi, begitu Tri.</p>
+                    <p>X: Dia kan memang tujuannya untuk tani, sekalian membangun lumbung. Kalau aku jadi karyawati ya mending di kompleks tengah, lebih dekat jalan.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R02" role="tabpanel" aria-labelledby="pills-R02-tab" tabindex="0">
+                    <h2>(rekaman tanpa judul)</h2>
+                    <p>X: Sekarang masih tanggal 18, kok mendahului satu hari.</p>
+                    <p>Y: Kamu ini sudah dikasih makanan enak mau atau tidak?</p>
+                    <p>X: Mau, mau. Maaf, bercanda.</p>
+                    <p>Y: Kue enak begini, kamu dapat dari mana?</p>
+                    <p>Z: Itu sebenarnya sisa dari toko majikan kemarin. Sebab itu aku ajak kalian makan hari ini, keburu kedaluwarsa.</p>
+                    <p>X: Katamu kue sisa tapi kok besar sekali, mana ada tulisan Mulya – Nita. </p>
+                    <p>Z: Lebih tepatnya kue yang tidak diambil, sudah dibayar tetapi ternyata pelanggannya salah tanggal.</p>
+                    <p>X: Kalau begitu, selamat H-1 ulang tahun, ya.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R03" role="tabpanel" aria-labelledby="pills-R03-tab" tabindex="0">
+                    <h2>(rekaman tanpa judul)</h2>
+                    <p>X: Mau bagaimana lagi, dulu modalnya hanya segini. Namun, tidak mungkin kalau banjir, kita ini di desa, bukan di kota.</p>
+                    <p>Y: Bukan itu masalahnya, kalau banjir bandang itu beda, tidak naik sedikit-sedikit melainkan langsung deras airnya.</p>
+                    <p>X: Tidak, deh, saya yakin aman dari hal seperti itu. Lagian selama rumah Raka aman, rumah saya dan Mawar juga aman. Itu lihat di seberang jalan sana, dia lebih dekat dengan sungai.</p>
+                    <p>Y: Ya sudah, baik-baik dan jaga kesehatan, Li.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R04" role="tabpanel" aria-labelledby="pills-R04-tab" tabindex="0">
+                    <h2>(rekaman tanpa judul)</h2>
+                    <p>X: Dibagi-bagi, saya dapat warisan rumah, sedangkan tanah halaman samping untuk adik-adik. Rumah adik saya yang itu memang memanjang ke belakang sebab kita mau tetap ada halaman kecil di antara tiga rumah ini.</p>
+                    <p>Y: Agar seimbang dan sama rata, Non?</p>
+                    <p>X: Iya, biar luas tanah mereka sama. Sebab dulu wasiatnya hanya menjelaskan bahwa saya dapat rumah, kedua adik dapat tanah. Akhirnya dibagi begini. Rumah yang tengah milik Okta.</p>
+                    <p>Y: Wah, kamu dulu kembar tiga, ya? Walau tidak identik.</p>
+                    <p>X: Kita kembar tiga, lahir tengah malam. Hanya saja ketika adik saya yang paling kecil lahir, waktu sudah lewat pukul 00.00. Maka dari itu sudah ganti bulan khusus untuknya, karena itulah nama dia spesial.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R05" role="tabpanel" aria-labelledby="pills-R05-tab" tabindex="0">
+                    <h2>(rekaman tanpa judul)</h2>
+                    <p>X: Memang begitu, dulu masakanku juga tidak enak. Sebab saya belajar, lama-lama juga semakin baik.</p>
+                    <p>Y: Dulu langsung ke restoran itu kah?</p>
+                    <p>X: Tentu tidak, saya buka usaha di depan rumah dulu. Lumayan memanfaatkan lokasi strategis, dekat dengan SD.</p>
+                    <p>Y: Setelah itu, bagaimana kamu bisa diterima di perusahaanmu? Karena bakat? Karena orang dalam?</p>
+                    <p>X: Mungkin keduanya. Di RT ini banyak karyawan di resto yang bekerja di perusahaan yang sama. Salah satunya mengaku ditanyai apa pendapat mereka seputar masakanku.</p>
+                    <p>Y: Ha-ha-ha, sudah menjadi rahasia umum. Itu restoran besar dan terkenal.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R06" role="tabpanel" aria-labelledby="pills-R06-tab" tabindex="0">
+                    <h2>(rekaman tanpa judul)</h2>
+                    <p>X: Selamat sore Pak Agus.</p>
+                    <p>Y: Panggil saya Li, seperti belum kenal saja. Saya Agus yang lahir 10 April tapi namanya Agus. Satu-satunya warga yang namanya aneh hanya saya.</p>
+                    <p>X: Nama dari orang tua pasti ada maknanya, Pak. Coba ke toko-toko besar, saya pernah dengar orang bernama Agus bisa mendapat diskon setiap bulan Agustus.</p>
+                    <p>Y: Halah, itu hanya akal-akalan tokonya saja. Harga aslinya sudah dinaikkan.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R07" role="tabpanel" aria-labelledby="pills-R07-tab" tabindex="0">
+                    <h2>18FEB1984_1</h2>
+                    <p>X: Kemarin, baru kemarin, ketika dia yang ulang tahun, tidak hanya dia tetapi juga semua karyawan langsung diajak makan sate gratis. Padahal Senin awal bulan bos juga sudah mengadakan acara makan-makan untuk ulang tahunnya sendiri.</p>
+                    <p>Y: Jangan-jangan maksudmu Bayu yang dekat rumah Bu RT itu? Bayu yang suka koleksi foto dan barang kenangan keluarga?</p>
+                    <p>X: Bukan, itu Bayu yang satunya. Kalau yang aku maksud adalah Bayu yang beli rumah patungan dengan Setia. Mereka dulu patungan karena memang dia belum ada pekerjaan tetap. Dia ambil separuh belakang, yang penting mendapat sumur. Walau demikian, jika Setia perlu air, ia ambil dari sumur itu juga sih.</p>
+                    <p>Y: Wah, rezeki ganda di bulan Februari. Waktu bosnya ultah dia ikut makan, waktu dia ultah juga dikasih makan lagi. Aku jadi kasihan sama Slamet yang empat tahun sekali.</p>
+                    <p>X: Bagaimanapun juga, aku salut sama Pak Bos. Rumahnya besar, lebih besar dari sekolah, tingkat dua, tetapi dermawan.</p>
+                    <p>Y: Ya jelas rumahnya besar, kan lantai bawah juga digunakan untuk industri rumahan.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R08" role="tabpanel" aria-labelledby="pills-R08-tab" tabindex="0">
+                    <h2>21193_WAWANCARA_COPY</h2>
+                    <p>X: Di SD tidak apa-apa, Pak. Tinggal melompat pagar. Kalau ke kelurahan malah kejauhan untuk saya.</p>
+                    <p>Y: Baik, kalau begitu ujiannya bisa diadakan di SD. Besok tinggal bawa alat tulis. Pakaian bebas rapi, ya.</p>
+                    <p>X: Siap, ada yang lainnya, Pak?</p>
+                    <p>Y: Ini, sekadar klarifikasi saja. Tanggal lahir Ibu benar 31 Desember?</p>
+                    <p>X: Iya, memangnya kenapa?</p>
+                    <p>Y: Saya sangka tanggal ini disebabkan Ibu tidak tahu dengan tanggal lahirnya. Sebab secara aturan kalau tidak tahu tanggal, maka dicatatnya juga 31 Desember.</p>
+                    <p>X: Saya malah baru tahu seputar hukum itu.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R09" role="tabpanel" aria-labelledby="pills-R09-tab" tabindex="0">
+                    <h2>41210_WAWANCARA_COPY</h2>
+                    <p>X: Tanggal lahir saya 3 Januari 1948.</p>
+                    <p>Y: Bisa jelaskan pengalaman kamu menjadi asisten rumah tangga?</p>
+                    <p>X: Saya sudah menekuni profesi ini sejak 19 tahun. Mulai dari rumah kecil yang dihuni sepasang suami istri hingga keluarga besar dengan 9 anggota keluarga.</p>
+                    <p>Y: Sebagai ART, kamu harus siap memiliki empati terutama bagi keluarga dengan anak kecil. Bisakah kamu mendeskripsikan empati yang kamu miliki?</p>
+                    <p>X: Dulu waktu kecil saya sering bermain dengan Mawar, tetangga saya. Dia yatim piatu, orang tuanya tidak tahu di mana sebab dia besar di panti asuhan. Saya kasihan ketika akhir tahun kebanyakan orang pada berlibur, tetapi dia tidak. Akhirnya, saya ajak dia jalan-jalan dengan ayah ibu saya.</p>
+                    <p>Y: Apa yang menjadi daya tarik bergabung dengan mitra?</p>
+                    <p>X: Saya tertarik dengan upah yang ditawarkan meski harus bekerja di luar negeri.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R10" role="tabpanel" aria-labelledby="pills-R10-tab" tabindex="0">
+                    <h2>HUTTERINDAH_250848_250853</h2>
+                    <p>X, dkk.: Selamat ulang tahun kami ucapkan. Selamat panjang umur kita kan doakan. Selamat sejahtera sehat sentosa. Selamat panjang umur dan bahagia.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R11" role="tabpanel" aria-labelledby="pills-R11-tab" tabindex="0">
+                    <h2>KELAS_4_PERT_1_SMTGSL_8384</h2>
+                    <p>X: <i>My name is Lestari. My birthday is on June 20<sup>th</sup>.</i> Sekarang anak-anak coba dengan nama dan tanggal lahir masing-masing.</p>
+                    <p>Y: Saya mau coba, Bu. <i>My name is Bambang. My birthday is on August 21<sup>th</sup>.</i> </p>
+                    <p>X: Kalau tanggal 21 dibaca <i>twenty-first,</i> bukan <i>twenty-oneth.</i> Coba lagi.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R12" role="tabpanel" aria-labelledby="pills-R12-tab" tabindex="0">
+                    <h2>REC831112051234</h2>
+                    <p>X: Kalau yang lain sudah pada datang, bilang saja aku sudah berangkat duluan. Sebab ada yang pesan buat pesta ulang tahun hari ini.</p>
+                    <p>Y: Kamu ingin mengadakan pesta? Ngomong-ngomong selamat ulang tahun.</p>
+                    <p>X: Terima kasih, tetapi bukan aku yang pesan, makanan punya pelanggan. Harap-harap aku diajak makan karena tanggalnya barengan.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R13" role="tabpanel" aria-labelledby="pills-R13-tab" tabindex="0">
+                    <h2>REC831112055811</h2>
+                    <p>X: Ini sudah hampir jam 6, Mamat belum datang.</p>
+                    <p>Y: Maklum, rumahnya paling pelosok di RT ini. </p>
+                    <p>X: Mau-maunya ya tinggal di sana, menyeberangi sungai pula.</p>
+                    <p>Y: Sebab di sana tanahnya murah, lebih luas. Noval mana?</p>
+                    <p>X: Tadi sudah berangkat duluan, ada pesanan pesta ulang tahun.</p>
+                    <p>Z: Kemarin kata abangmu juga ada pesanan material untuk bangun hotel, Put.</p>
+                    <p>W: Iya benar, bukan hotel berbintang, melainkan semacam hotel melati. Banyak banget loh, kemarin jalan depan rumahku juga ikut buat menjemur karena saking banyaknya. Orang tua kita yang berkunjung saja sampai bingung harus parkir di mana.</p>
+                    <p>Y: Ngomong-ngomong ulang tahun, aku tanggal 18. Kamu berapa?</p>
+                    <p>Z: 21, dempetan sama Mamat. </p>
+                    <p>W: Wah, berarti kita bertiga plus Mamat tanggalnya berderet dong. Tri beda sendiri huuu.</p>
+                    <p>X: Tapi kan kamu April, beda bulan dengan tiga yang lain.</p>
+                    <p>W: Kamu juga beda bulan, tetapi tanggalku masih berantai dengan yang lain.</p>
+                    <p>X: Terserah, aku biar beda yang penting buruh satu dunia ikut merayakan ultahku.</p>
+                    <p>Z: Hm, humor ibu-ibu, aku mana paham. Sudah, sudah, itu Mamat sudah datang. Ayo cari angkot.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R14" role="tabpanel" aria-labelledby="pills-R14-tab" tabindex="0">
+                    <h2>OUTDOOR_CAM2</h2>
+                    <p>X: Ya kalau begitu saya rugi, dulu bagi-bagi diskon waktu 20 Maret buat syukuran ulang tahun saya. Itupun hanya untuk sayur mayur dan produk yang mudah kedaluwarsa satu hari.</p>
+                    <p>Y: Atau begini saja, bulan depan ada pertandingan bola, boleh banget Bapak pasang layar lebar. Pasti ramai warga.</p>
+                    <p>X: Boleh, kalau ini sih strategi yang menarik. Namun serius? Di depan toko mungkin becek kalau musim hujan.</p>
+                    <p>Y: Di belakang saja, nebeng di rumah Slamet. Buat gantinya coba kasih sembako. Hitung-hitung buat sewa tempat.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R15" role="tabpanel" aria-labelledby="pills-R15-tab" tabindex="0">
+                    <h2>OUTDOOR_CAM2_1</h2>
+                    <p>X: Mau beli apa?</p>
+                    <p>Y: Saya hanya ingin bertanya alamat rumah Ibu Sasa Mentari.</p>
+                    <p>X: Anda siapa? Ada keperluan apa?</p>
+                    <p>Y: Saya petugas dari instansi pendidikan, tujuannya untuk menyiapkan ujian kesetaraan untuknya.</p>
+                    <p>X: Rumahnya dekat, lurus jalan ini, cat hijau.</p>
+                    <p>Y: Terima kasih, sekalian alamat rumah Pak RT ada di mana?</p>
+                    <p>X: Bu RT, rumahnya di pojok perempatan SD, cat merah.</p>
+                    <p>Y: Sekali lagi terima kasih, saya perlu berkunjung ke RT untuk laporan. Boleh tahu nama beliau, Pak?</p>
+                    <p>X: Bu Lestari, tapi kalau sekarang mungkin sedang di sekolah, coba nanti kalau kosong langsung ke SD-nya saja.</p>
+                    <p>Y: Izin lihat kalender, Pak. 26 Juli. Oke.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R16" role="tabpanel" aria-labelledby="pills-R16-tab" tabindex="0">
+                    <h2>OUTDOOR_CAM2_2</h2>
+                    <p>X: Info percetakan spanduk pernikahan, Pak?</p>
+                    <p>Y: Kalau mau bagus, saran saya di– </p>
+                    <p>X: Yang penting cepat jadi Pak, kemarin ternyata salah tanggal.</p>
+                    <p>Y: Saya sih ada kenalan, cukup sebut nama, tanggal, sama telepon, nanti saya telepon teman saya.</p>
+                    <p>X: Bisa? Namanya Mulyadi Haryono dan Anita Budiman, tanggal benar 28 Juli, dan ini nomor telepon saya kalau perlu apa-apa.</p>
+                    <p>Y: Baik, saya akan telepon kenalan, nanti sore pasti sudah ditelepon balik di nomor ini.</p>
+                    <p>X: Terima kasih, Pak. Kemarin malah tertulis tanggal 18. Jangan lupa telepon balik.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R17" role="tabpanel" aria-labelledby="pills-R17-tab" tabindex="0">
+                    <h2>OUTDOOR_CAM2_3</h2>
+                    <p>X: Maaf, Pak. Ngamen gratis.</p>
+                    <p>Y: Saya gratis, tidak bayar tidak apa-apa.</p>
+                    <p>X: Kalau begitu boleh, deh.</p>
+                    <p>Y: <i>Never gonna give–.</i></p>
+                    <p>X: Hah? Lagu apa itu?</p>
+                    <p>Y: Gapapa, saya penjelajah waktu dari masa depan. Nanti di zamannya Anda paham sendiri.</p>
+                </div>
+                <div class="tab-pane fade" id="pills-R18" role="tabpanel" aria-labelledby="pills-R18-tab" tabindex="0">
+                    <h2>OUTDOOR_CAM2_4</h2>
+                    <p>X: Ini dari instansi pendidikan juga kah?</p>
+                    <p>Y: Bukan, saya dari ketenagakerjaan. Saya ingin bertanya alamat Ibu Indah Permata.</p>
+                    <p>X: Lurus masuk sampai perempatan. Di perempatan ada rumah tingkat besar. Nah, rumah Bu Indah di seberangnya.</p>
+                    <p>Y: Baik, terima kasih. Satu lagi, tolong alamat rumah–</p>
+                    <p>X: Bu RT? Lokasinya dekat dengan Bu Indah, cat merah. Atas nama Bu Lestari.</p>
+                    <p>Y: Terima kasih, tahu saja saya ingin bertanya itu.</p>
+                    <p>X: Pasti untuk laporan.</p>
+                    <p>Y: Haha, benar. Anda dulu juga pernah menjadi pegawai?</p>
+                    <p>X: Tidak, hanya saja pertanyaanmu mirip petugas berseragam sebelumnya, baru tadi pagi.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="kunci.js"></script>
+  </body>
+</html>
