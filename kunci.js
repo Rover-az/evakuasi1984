@@ -4,33 +4,33 @@ var levelBulan = [];
 for (let i = 0; i < 24; i++) {
     switch(true) {
         case ([3,4,7,8,10,13,21,22,23].contains(i)):
-            levelLokasi = levelLokasi + "*";
+            levelLokasi.push("*");
             break;
         case ([0,6,9,18,19,20].contains(i)):
-            levelLokasi = levelLokasi + "**";
+            levelLokasi.push("**");
             break;
         default:
-            levelLokasi = levelLokasi + "***";
+            levelLokasi.push("***");
     }
     switch(true) {
         case ([0,2,8,13,14,21,23].contains(i)):
-            levelTanggal = levelTanggal + "*";
+            levelTanggal.push("*");
             break;
         case ([3,4,5,6,7,11,18,20,22].contains(i)):
-            levelTanggal = levelTanggal + "**";
+            levelTanggal.push("**");
             break;
         default:
-            levelTanggal = levelTanggal + "***";
+            levelTanggal.push("***");
     }
     switch(true) {
         case ([0,2,8,10,13,14,21,23].contains(i)):
-            levelBulan = levelBulan + "*";
+            levelBulan.push("*");
             break;
         case ([1,3,4,5,6,7,11,18,19,20].contains(i)):
-            levelBulan = levelBulan + "**";
+            levelBulan.push("**");
             break;
         default:
-            levelBulan = levelBulan + "***";
+            levelBulan.push("***");
     }
 }
 
