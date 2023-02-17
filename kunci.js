@@ -3,30 +3,30 @@ var levelTanggal = [];
 var levelBulan = [];
 for (let i = 0; i < 24; i++) {
     switch(true) {
-        case ([3,4,7,8,10,13,21,22,23].contains(i)):
+        case ([3,4,7,8,10,13,21,22,23].includes(i)):
             levelLokasi.push("*");
             break;
-        case ([0,6,9,18,19,20].contains(i)):
+        case ([0,6,9,18,19,20].includes(i)):
             levelLokasi.push("**");
             break;
         default:
             levelLokasi.push("***");
     }
     switch(true) {
-        case ([0,2,8,13,14,21,23].contains(i)):
+        case ([0,2,8,13,14,21,23].includes(i)):
             levelTanggal.push("*");
             break;
-        case ([3,4,5,6,7,11,18,20,22].contains(i)):
+        case ([3,4,5,6,7,11,18,20,22].includes(i)):
             levelTanggal.push("**");
             break;
         default:
             levelTanggal.push("***");
     }
     switch(true) {
-        case ([0,2,8,10,13,14,21,23].contains(i)):
+        case ([0,2,8,10,13,14,21,23].includes(i)):
             levelBulan.push("*");
             break;
-        case ([1,3,4,5,6,7,11,18,19,20].contains(i)):
+        case ([1,3,4,5,6,7,11,18,19,20].includes(i)):
             levelBulan.push("**");
             break;
         default:
